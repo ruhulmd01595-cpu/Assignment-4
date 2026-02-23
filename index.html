@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-200 p-4">
 
-<!-- Dashboard Counters -->
 <section class="mt-11 max-w-6xl mx-auto">
     <h1 class="text-[#002C5C] text-3xl font-bold mb-6">Job Application Tracker</h1>
     <div class="grid grid-cols-3 gap-4 px-5 py-8 bg-amber-30 rounded-xl shadow ">
@@ -31,7 +30,6 @@
 
 <main class="max-w-6xl mx-auto">
 
-    <!-- Tabs -->
     <section class="mb-6 flex justify-between items-center">
         <h2 class="text-xl font-bold text-[#002C5C]">Available Jobs</h2>
         <span id="tabCount" class="text-sm font-semibold text-gray-600">0 jobs</span>
@@ -44,9 +42,9 @@
     </div>
 
     <!-- Cards Section -->
-    <section id="all-cards" class="space-y-5 w-[95%] mx-auto">
+    <section id="all-cards" class="space-y-5 w-[98%] mx-auto">
 
-        <!-- Job Card Template -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl mb-6 shadow" >
             <div class="flex-1">
                 <h1 class="title text-[#002C5C] font-bold">Mobile First Corp</h1>
@@ -64,7 +62,7 @@
             </div>
         </div>
 
-        <!-- CARD 2 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow  mb-4">
             <div class="flex-1">
                 <h1 class="title text-[#002C5C] font-bold">TechNova Solutions</h1>
@@ -83,7 +81,7 @@
         </div>
 
 
-        <!-- CARD 3 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
             <div class="flex-1">
                <h1 class="title text-[#002C5C] font-bold">SkyBridge IT</h1>
@@ -102,7 +100,7 @@
         </div>
 
 
-        <!-- CARD 4 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
             <div class="flex-1">
                <h1 class="title text-[#002C5C] font-bold">Global Soft Ltd</h1>
@@ -117,11 +115,11 @@
             </div>
             <div class="flex items-start mt-3 md:mt-0">
                 <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
-            </div>>
+            </div>
         </div>
 
 
-        <!-- CARD 5 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
             <div class="flex-1">
                 <h1 class="title text-[#002C5C] font-bold">NextGen AI Labs</h1>
@@ -140,7 +138,7 @@
         </div>
 
 
-         <!-- CARD 6 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
             <div class="flex-1">
                 <h1 class="title text-[#002C5C] font-bold">BrightCode Studio</h1>
@@ -159,7 +157,7 @@
         </div>
 
 
-        <!-- CARD 7 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
             <div class="flex-1">
                <h1 class="title text-[#002C5C] font-bold">CloudWave Systems</h1>
@@ -178,7 +176,7 @@
         </div>
 
 
-        <!-- CARD 8 -->
+        
         <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
             <div class="flex-1">
                 <h1 class="title text-[#002C5C] font-bold">FinTech Pro</h1>
@@ -199,10 +197,10 @@
         
     </section>
 
-    <div id="emptyState" class="hidden flex flex-col items-center justify-center py-16 text-gray-500 space-y-3">
-        <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" alt="No Jobs" class="w-20 h-20 opacity-50">
-        <h3 class="text-lg font-bold">No jobs available</h3>
-        <p class="text-sm text-gray-400">Please check back later or add a new job.</p>
+    <div id="emptyState" class=" hidden flex flex-col items-center justify-center py-16 text-gray-500 space-y-3">
+        <img src="img/jobs.png" alt="No Jobs" class="w-20 h-20 opacity-50">
+        <h3 class="text-[#002C5C] font-bold">No jobs available</h3>
+        <p class="text-sm text-gray-400">Check back soon for new job opportunities</p>
     </div>
 
 </main>
@@ -304,7 +302,7 @@ function renderFiltered(filter) {
 
     tabCount.innerText = filteredJobs.length + " jobs";
 
-    // Handle empty state
+    
     const emptyState = document.getElementById("emptyState");
     if(filteredJobs.length === 0 && filter !== "all") {
         emptyState.classList.remove("hidden");
