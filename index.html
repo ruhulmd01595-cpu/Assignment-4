@@ -1,204 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Application Tracker</title>
-
-    <!-- Tailwind CSS CDN -->
-    <link rel="stylesheet" href="tailwind.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Application Tracker</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-200 p-4  mx-auto">
+<body class="bg-gray-200 p-4">
 
 <!-- Dashboard Counters -->
-<section class="mt-11 max-w-10/12 mx-auto  ">
-    <h1 class="text-[#002C5C] text-3xl font-bold">Job Application Tracker</h1>
-    <div class="grid grid-cols-3 px-5 py-12">
-        <div>
-            <p class="text-[#323B49]">Total</p>
+<section class="mt-11 max-w-6xl mx-auto">
+    <h1 class="text-[#002C5C] text-3xl font-bold mb-6">Job Application Tracker</h1>
+    <div class="grid grid-cols-3 gap-4 px-5 py-8 bg-amber-30 rounded-xl shadow ">
+        <div class="text-center">
+            <p class="text-gray-600">Total</p>
             <p id="total" class="text-2xl text-blue-800 font-bold">0</p>
         </div>
-        <div>
-            <p class="text-[#323B49]">Interview</p>
+        <div class="text-center">
+            <p class="text-gray-600">Interview</p>
             <p id="Interview" class="text-2xl text-green-700 font-bold">0</p>
         </div>
-        <div>
-            <p class="text-[#323B49]">Rejected</p>
+        <div class="text-center">
+            <p class="text-gray-600">Rejected</p>
             <p id="Rejected" class="text-2xl text-red-600 font-bold">0</p>
         </div>
     </div>
 </section>
-<hr class="w-10/12 mx-auto">
 
-<main class="max-w-10/12 mx-auto">
+<hr class="my-8">
+
+<main class="max-w-6xl mx-auto">
+
     <!-- Tabs -->
-    <section>
-        <div class="flex justify-between items-center w-full">
-            <h2 class="text-xl font-bold text-[#002C5C]">Available Jobs</h2>
-            <span id="tabCount" class="text-sm font-semibold text-gray-600">0 jobs</span>
-        </div>
-
-        <div class="py-5 space-x-3">
-            <button onclick="togglestyle('all')" id="all" class="bg-blue-500 px-10 py-2 text-black rounded">All</button>
-            <button onclick="togglestyle('Interview')" id="InterviewTab" class="bg-gray-300 px-5 py-2 text-black rounded">Interview</button>
-            <button onclick="togglestyle('Rejected')" id="RejectedTab" class="bg-gray-300 px-5 py-2 text-black rounded">Rejected</button>
-        </div>
+    <section class="mb-6 flex justify-between items-center">
+        <h2 class="text-xl font-bold text-[#002C5C]">Available Jobs</h2>
+        <span id="tabCount" class="text-sm font-semibold text-gray-600">0 jobs</span>
     </section>
+
+    <div class="flex space-x-3 mb-6">
+        <button onclick="toggleStyle('all')" id="all" class="bg-blue-500 text-white px-6 py-2 rounded">All</button>
+        <button onclick="toggleStyle('Interview')" id="InterviewTab" class="bg-gray-300 text-black px-6 py-2 rounded">Interview</button>
+        <button onclick="toggleStyle('Rejected')" id="RejectedTab" class="bg-gray-300 text-black px-6 py-2 rounded">Rejected</button>
+    </div>
 
     <!-- Cards Section -->
-    <section id="all-cards" class="space-y-5 mt-5 w-[95%] mx-auto">
+    <section id="all-cards" class="space-y-5 w-[95%] mx-auto">
 
-        <!-- Card 1 -->
-        <div class="card flex justify-between  bg-[#f1f2f462] p-3 rounded-2xl ">
-            <div>
+        <!-- Job Card Template -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl mb-6 shadow" >
+            <div class="flex-1">
                 <h1 class="title text-[#002C5C] font-bold">Mobile First Corp</h1>
-                <p class="position text-[#64748B]">React Native Developer</p>
-                <p class="details text-[#64748B] mt-2">Remote • Full-time • $130,000 - $175,000</p>
-                <h3 class="DD  bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                <p class="position text-gray-500">React Native Developer</p>
+                <p class="details text-gray-400 mt-1">Remote • Full-time • $130,000 - $175,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                 <div class="pt-3 space-x-2">
                     <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
                     <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
                 </div>
             </div>
-            <div class="flex items-start">
-                <button class="delete text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
             </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="card flex justify-between  bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">WebFlow Agency</h1>
-                <p class="position text-[#64748B]">Web Designer & Developer</p>
-                <p class="details text-[#64748B] mt-2">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
-                <h3 class="DD  bg-[#476a8f13]] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+        <!-- CARD 2 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow  mb-4">
+            <div class="flex-1">
+                <h1 class="title text-[#002C5C] font-bold">TechNova Solutions</h1>
+                <p class="position text-gray-500">Frontend Developer</p>
+                <p class="details text-gray-400 mt-1">Dhaka • Hybrid • $80,000 - $120,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Create modern interfaces with React, Tailwind, and TypeScript.</p>
+                <div class="pt-3 space-x-2">
+                   <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
+                   <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
+                </div>
+            </div>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            </div>
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
+            <div class="flex-1">
+               <h1 class="title text-[#002C5C] font-bold">SkyBridge IT</h1>
+                <p class="position text-gray-500">Backend Developer</p>
+                <p class="details text-gray-400 mt-1">Remote • Full-time • $100,000 - $140,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Work with Node.js, Express, MongoDB and scalable backend systems.</p>
+                <div class="pt-3 space-x-2">
+                   <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
+                   <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
+                </div>
+            </div>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            </div>
+        </div>
+
+
+        <!-- CARD 4 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
+            <div class="flex-1">
+               <h1 class="title text-[#002C5C] font-bold">Global Soft Ltd</h1>
+                <p class="position text-gray-500">UI/UX Designer</p>
+                <p class="details text-gray-400 mt-1">On-site • Dhaka • $70,000 - $100,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Design intuitive user-centered dashboards & mobile screens.</p>
                 <div class="pt-3 space-x-2">
                     <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
                     <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
                 </div>
             </div>
-            <div class="flex items-start">
-                <button class="delete 0 text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            </div>>
+        </div>
+
+
+        <!-- CARD 5 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
+            <div class="flex-1">
+                <h1 class="title text-[#002C5C] font-bold">NextGen AI Labs</h1>
+                <p class="position text-gray-500">Machine Learning Engineer</p>
+                <p class="details text-gray-400 mt-1">Remote • Full-time • $150,000 - $200,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Build AI pipelines, train models, and deploy ML microservices.</p>
+                <div class="pt-3 space-x-2">
+                   <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
+                   <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
+                </div>
+            </div>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
             </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="card flex justify-between  bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">DataViz Solutions</h1>
-                <p class="position text-[#64748B]">Data Visualization Specialist</p>
-                <p class="details text-[#64748B] mt-2">Boston, MA • Full-time • $125,000 - $165,000</p>
-                <h3 class="DD  bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
+
+         <!-- CARD 6 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
+            <div class="flex-1">
+                <h1 class="title text-[#002C5C] font-bold">BrightCode Studio</h1>
+                <p class="position text-gray-500">Full Stack Developer</p>
+                <p class="details text-gray-400 mt-1">Hybrid • Dhaka • $90,000 - $130,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Develop end-to-end web apps using MERN stack.</p>
                 <div class="pt-3 space-x-2">
                     <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
                     <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
                 </div>
             </div>
-            <div class="flex items-start">
-                <button class="delete  text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
             </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="card flex justify-between  bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">CloudFirst Inc</h1>
-                <p class="position text-[#64748B]">Backend Developer</p>
-                <p class="details text-[#64748B] mt-2">Seattle, WA • Full-time • $140,000 - $190,000</p>
-                <h3 class="DD  bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
-                
-                <div class="pt-3 space-x-2">
-                    <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
-                    <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
+
+        <!-- CARD 7 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
+            <div class="flex-1">
+               <h1 class="title text-[#002C5C] font-bold">CloudWave Systems</h1>
+               <p class="position text-gray-500">DevOps Engineer</p>
+               <p class="details text-gray-400 mt-1">Remote • $120,000 - $160,000</p>
+               <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+               <p class="description text-gray-600 mt-2">Automate CI/CD pipelines using Docker, Kubernetes & AWS.</p>
+               <div class="pt-3 space-x-2">
+                   <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
+                   <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
                 </div>
             </div>
-            <div class="flex items-start">
-                <button class="delete  text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
             </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="card flex justify-between bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">Innovation Labs</h1>
-                <p class="position text-[#64748B]">UI/UX Engineer</p>
-                <p class="details text-[#64748B] mt-2">Austin, TX • Full-time • $110,000 - $150,000</p>
-                <h3 class="DD  bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
+
+        <!-- CARD 8 -->
+        <div class="card flex flex-col md:flex-row justify-between bg-[#ffffff59] p-4 rounded-2xl shadow mb-4">
+            <div class="flex-1">
+                <h1 class="title text-[#002C5C] font-bold">FinTech Pro</h1>
+                <p class="position text-gray-500">Product Manager</p>
+                <p class="details text-gray-400 mt-1">On-site • Singapore • $140,000 - $180,000</p>
+                <h3 class="status-label bg-blue-100 text-blue-700 font-bold py-1 px-4 rounded-xl inline-block mt-2">Not Applied</h3>
+                <p class="description text-gray-600 mt-2">Lead product roadmap, strategy, and feature planning.</p>
                 <div class="pt-3 space-x-2">
-                    <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
-                    <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
+                   <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
+                   <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
                 </div>
             </div>
-            <div class="flex items-start">
-                <button class="delete  text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
+            <div class="flex items-start mt-3 md:mt-0">
+                <button class="delete text-white px-3 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
             </div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="card flex justify-between bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">MegaCorp Solutions</h1>
-                <p class="position text-[#64748B]">JavaScript Developer</p>
-                <p class="details text-[#64748B] mt-2">New York, NY • Full-time • $130,000 - $170,000</p>
-                <h3 class="DD  bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Build enterprise applications with JavaScript and modern frameworks. Competitive compensation and benefits provided.</p>
-                <div class="pt-3 space-x-2">
-                    <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
-                    <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
-                </div>
-            </div>
-            <div class="flex items-start">
-                <button class="delete  text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
-            </div>
-        </div>
-
-        <!-- Card 7 -->
-        <div class="card flex justify-between bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">StartupXYZ</h1>
-                <p class="position text-[#64748B]">Full Stack Engineer</p>
-                <p class="details text-[#64748B] mt-2">Remote • Full-time • $120,000 - $160,000</p>
-                <h3 class="DD  bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required.</p>
-                <div class="pt-3 space-x-2">
-                    <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
-                    <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
-                </div>
-            </div>
-            <div class="flex items-start">
-                <button class="delete  text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
-            </div>
-        </div>
-
-        <!-- Card 8 -->
-        <div class="card flex justify-between bg-[#f1f2f462] p-3 rounded-2xl">
-            <div>
-                <h1 class="title text-[#002C5C] font-bold">TechCorp Industries</h1>
-                <p class="position text-[#64748B]">Senior Frontend Developer</p>
-                <p class="details text-[#64748B] mt-2">San Francisco, CA • Full-time • $130,000 - $175,000</p>
-                <h3 class="DD bg-[#476a8f13] text-[#013c80] font-bold py-3 px-6 rounded-2xl w-[150px]">Not Applied</h3>
-                <p class="description text-[#323B49] mt-2">Experienced Frontend Developer to build scalable web applications using React and TypeScript.</p>
-                <div class="pt-3 space-x-2">
-                    <button class="interview px-4 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white">INTERVIEW</button>
-                    <button class="rejected px-4 py-2 border border-red-400 text-red-400 rounded hover:bg-red-400 hover:text-white">REJECTED</button>
-                </div>
-            </div>
-            <div class="flex items-start">
-                <button class="delete  text-white px-4 py-2 rounded"><img src="img/Vector (1).png" alt=""></button>
-            </div>
-        </div>
-
+        
     </section>
+
+    <div id="emptyState" class="hidden flex flex-col items-center justify-center py-16 text-gray-500 space-y-3">
+        <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" alt="No Jobs" class="w-20 h-20 opacity-50">
+        <h3 class="text-lg font-bold">No jobs available</h3>
+        <p class="text-sm text-gray-400">Please check back later or add a new job.</p>
+    </div>
+
 </main>
 
-<script src="script.js"></script>
+<script>
+const totalCounter = document.getElementById("total");
+const interviewCounter = document.getElementById("Interview");
+const rejectedCounter = document.getElementById("Rejected");
+const tabCount = document.getElementById("tabCount");
+
+const tabButtons = {
+    all: document.getElementById("all"),
+    Interview: document.getElementById("InterviewTab"),
+    Rejected: document.getElementById("RejectedTab")
+};
+
+let jobs = [];
+
+function initJobs() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card, index) => {
+        const job = { 
+            id: index, 
+            cardElement: card, 
+            status: "Not Applied" 
+        };
+        jobs.push(job);
+
+        const statusLabel = card.querySelector(".status-label");
+
+        card.querySelector(".delete").addEventListener("click", () => deleteJob(job.id));
+        card.querySelector(".interview").addEventListener("click", () => updateStatus(job.id, "Interview", statusLabel));
+        card.querySelector(".rejected").addEventListener("click", () => updateStatus(job.id, "Rejected", statusLabel));
+    });
+
+    updateCounters();
+    renderFiltered("all");
+}
+
+function deleteJob(id) {
+    const index = jobs.findIndex(j => j.id === id);
+    if (index !== -1) {
+        jobs[index].cardElement.remove();
+        jobs.splice(index, 1);
+        updateCounters();
+        renderFiltered(getActiveTab());
+    }
+}
+
+function updateStatus(id, status, label) {
+    const job = jobs.find(j => j.id === id);
+    if (job) {
+        job.status = status;
+        label.innerText = status;
+        label.classList.remove("bg-blue-100","bg-green-100","bg-red-100");
+        label.classList.remove("text-blue-700","text-green-700","text-red-700");
+
+        if(status==="Interview") {
+            label.classList.add("bg-green-100","text-green-700");
+        } else if(status==="Rejected") {
+            label.classList.add("bg-red-100","text-red-700");
+        }
+
+        updateCounters();
+        renderFiltered(getActiveTab());
+    }
+}
+
+function updateCounters() {
+    totalCounter.innerText = jobs.length;
+    interviewCounter.innerText = jobs.filter(j => j.status === "Interview").length;
+    rejectedCounter.innerText = jobs.filter(j => j.status === "Rejected").length;
+}
+
+function toggleStyle(tabName) {
+    for (let key in tabButtons) {
+        tabButtons[key].classList.remove("bg-blue-500","text-white");
+        tabButtons[key].classList.add("bg-gray-300","text-black");
+    }
+    tabButtons[tabName].classList.remove("bg-gray-300","text-black");
+    tabButtons[tabName].classList.add("bg-blue-500","text-white");
+
+    renderFiltered(tabName);
+}
+
+function getActiveTab() {
+    for (let key in tabButtons) {
+        if (tabButtons[key].classList.contains("bg-blue-500")) return key;
+    }
+    return "all";
+}
+
+function renderFiltered(filter) {
+    const cards = document.querySelectorAll(".card");
+    let filteredJobs = filter === "all" ? jobs : jobs.filter(j => j.status === filter);
+
+    cards.forEach(card => card.style.display = "none");
+    filteredJobs.forEach(job => job.cardElement.style.display = "flex");
+
+    tabCount.innerText = filteredJobs.length + " jobs";
+
+    // Handle empty state
+    const emptyState = document.getElementById("emptyState");
+    if(filteredJobs.length === 0 && filter !== "all") {
+        emptyState.classList.remove("hidden");
+    } else {
+        emptyState.classList.add("hidden");
+    }
+}
+
+window.addEventListener("DOMContentLoaded", initJobs);
+</script>
+
 </body>
 </html>
